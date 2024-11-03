@@ -12,7 +12,7 @@ nltk.download('punkt_tab')
 app = Flask(__name__)
 
 # Initialize the summarization pipeline
-summarizer = pipeline("summarization", model="t5-base", tokenizer="t5-small", framework="pt")
+summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small", framework="pt")
 
 @app.route('/')
 def home():
