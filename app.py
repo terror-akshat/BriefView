@@ -84,4 +84,6 @@ def summarize():
                            original_text=text, recognized_text=recognized_bullet_points)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Add host and port for local development
+    app.run(debug=True, host='127.0.0.1', port=5000)
+
