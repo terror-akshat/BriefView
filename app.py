@@ -11,7 +11,13 @@ nltk.download('punkt')
 app = Flask(__name__)
 
 # Use a smaller model for reduced memory usage
-summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small", framework="pt")
+# summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small", framework="pt", device=0)
+from transformers import T5ForConditionalGeneration, T5Tokenizer
+
+MODEL_NAME = "t5-small"
+tokenizer = T5Tokenizer.from_pretrained(MODEL_NAME)
+summarizer = T5ForConditionalGeneration.from_pretrained(MODEL_NAME, torch_dtype="auto", device_map="auto")
+
 
 @app.route('/')
 def home():
