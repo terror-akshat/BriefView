@@ -11,7 +11,7 @@ nltk.download('punkt')
 app = Flask(__name__)
 
 # Use a smaller model for reduced memory usage
-summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small", framework="pt", device=0)
+summarizer = pipeline("summarization", model="t5-small", tokenizer="t5-small", framework="pt", device=-1)
 
 
 
